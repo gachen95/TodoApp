@@ -5,7 +5,7 @@ A todo list application in nodejs
 
 ## Backend
 
-Use nest, prisma and apollo server. see [Details](./doc/api_nest.md).
+Use nest, prisma and apollo server. see [Details](./doc/api-nest.md).
 
 ## Frontend
 
