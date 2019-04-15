@@ -1,0 +1,22 @@
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  password: String!
+  displayName: String
+  role: String!
+  lastToken: String
+  lastLogin: Int
+  lastLogout: Int
+  todos: [Todo!]
+  comments: [Comment!]
+}
+
+type Query {  
+  me: User!
+  users: [User!]!
+}
+
+type Mutation {  
+  updateMe(displayName: String): User!
+}

@@ -1,0 +1,28 @@
+// https://medium.com/@mas.autsakorn/lets-create-a-project-with-nextjs-antd-and-deploy-with-now-sh-e38772348312
+// https://nextjs-antd-custom-92jb00zg6.now.sh/
+// https://github.com/hanpama/next-with-antd
+
+
+// https://github.com/ant-design/ant-design/issues/5285
+:global {
+    .two-rows-label .ant-form-item-label {
+      padding: 4px 0 !important;
+      label {
+        white-space: normal;
+        margin-right: 12px;
+        display: inline-block;
+        text-align: center;
+        line-height: 12px;
+        width: 50px;
+        &:after {
+          content: none !important;
+        }
+        &.ant-form-item-required:before {
+          position: absolute;
+          left: -7px;
+        }
+      }
+    }
+  }
+
+

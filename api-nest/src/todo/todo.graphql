@@ -1,0 +1,26 @@
+type Todo {
+  id: ID!
+  title: String!
+  description: String
+  isCompleted: Boolean!
+  author: User!
+  comments: [Comment!]
+}
+
+type TodosPages {
+  page: Int!
+  items: [Todo]!
+  count: Int!  
+}
+
+type Query {  
+  getTodoById(id: String!): Todo!
+  getTodos: [Todo]! 
+  getTodosPages(page: Int!, pageSize: Int=10): TodosPages
+}
+
+type Mutation {
+  createTodo(title: String!, description: String, isCompleted: Boolean): Todo!
+  updateTodo(id: ID!, title: String!, description: String, isCompleted: Boolean): Todo!
+  deleteTodo(id: ID!): Todo
+}

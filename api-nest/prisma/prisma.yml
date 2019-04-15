@@ -1,0 +1,29 @@
+# Specifies the HTTP endpoint of your Prisma API.
+#endpoint: ''
+endpoint: https://us1.prisma.sh/gachen95-72dde9/todo-api/dev
+
+datamodel: datamodel.graphql
+
+generate:
+  - generator: typescript-client
+    output: ../src/generated/prisma-client
+
+  #- generator: graphql-schema
+  #  output: ../src/generated
+
+
+# Ensures Prisma client is re-generated after a datamodel change.
+hooks:
+  post-deploy:
+    - prisma generate
+
+# Seeds initial data into the database by running a script.
+seed:
+  run: yarn ts-node ./prisma/seed.ts
+  # import: seed.graphql
+
+
+# If specified, the `secret` must be used to generate a JWT which is attached
+# to the `Authorization` header of HTTP requests made against the Prisma API.
+# Info: https://www.prisma.io/docs/reference/prisma-api/concepts-utee3eiquo#authentication
+# secret: mysecret123

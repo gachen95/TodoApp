@@ -1,0 +1,35 @@
+enum Role {
+  ADMIN
+  USER
+}
+
+type User {
+  id: ID! @unique
+  username: String! @unique
+  email: String! @unique
+  password: String!
+  displayName: String
+  role: Role! @default(value: USER)
+  lastToken: String
+  lastLogin: Int
+  lastLogout: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  todos: [Todo!]!
+  comments: [Comment!]!  
+}
+
+type Todo {
+  id: ID! @unique
+  title: String!
+  description: String
+  isCompleted: Boolean! @default(value: false)
+  author: User!
+  comments: [Comment!]!
+}
+
+type Comment {
+  id: ID! @unique
+  text: String!
+  writtenBy: User!
+}
